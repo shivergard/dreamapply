@@ -1,0 +1,21 @@
+{
+  "2014": {
+    "name": "2014/15",
+    "startdate": "01-09-2014",
+    "termtype": "semester",
+    "terms": [
+      {
+        "code": "2014-1",
+        "name": "Autumn 2014/15",
+        "datestart": "01-09-2014",
+        "dateend": "10-12-2014"
+      },
+      {
+        "code": "2014-2",
+        "name": "Spring 2014/15",
+        "datestart": "04-01-2015",
+        "dateend": "15-04-2015"
+      }
+    ]
+  }
+}
