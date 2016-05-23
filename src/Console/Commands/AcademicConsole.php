@@ -6,6 +6,8 @@ use Symfony\Component\Console\Input\InputArgument;
 
 use Pimple\Container;
 
+use Shivergard\DreamApply\Parser;
+
 use Carbon\Carbon;
 
 class AcademicConsole extends Command {
@@ -45,7 +47,14 @@ class AcademicConsole extends Command {
      */
     public function fire()
     {
-        $this->info('init accademic '.$this->getIdInput());
+        $parser = new Parser($this->getFilePathInput());
+        if ($parser->error()){
+            $this->error($parser->error());
+        }
+
+        $data = $parser->data();
+
+        $this->info($data);
     }
 
     /**
@@ -53,9 +62,8 @@ class AcademicConsole extends Command {
      *
      * @return string
      */
-    protected function getIdInput()
-    {
-        return $this->argument('id');
+    protected function getFilePathInput(){
+        return $this->argument('filepath');
     }
     /**
      * Get the console command arguments.
@@ -65,7 +73,7 @@ class AcademicConsole extends Command {
     protected function getArguments()
     {
         return array(
-            array('id', InputArgument::REQUIRED, 'ID of user'),
+            array('filepath', InputArgument::REQUIRED, 'data file path'),
         );
     }
 

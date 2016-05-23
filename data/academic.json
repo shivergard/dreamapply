@@ -1,0 +1,67 @@
+{
+  "2014": {
+    "name": "2014/15",
+    "startdate": "01-09-2014",
+    "termtype": "semester",
+    "terms": [
+      {
+        "code": "2014-1",
+        "name": "Autumn 2014/15",
+        "datestart": "01-09-2014",
+        "dateend": "10-12-2014"
+      },
+      {
+        "code": "2014-2",
+        "name": "Spring 2014/15",
+        "datestart": "04-01-2015",
+        "dateend": "15-04-2015"
+      }
+    ]
+  },
+
+  "2015": {
+    "name": "2015/16",
+    "startdate": "05-09-2015",
+    "termtype": "semester",
+    "terms": [
+      {
+        "code": "2015-1",
+        "name": "Autumn 2015/16",
+        "datestart": "01-09-2015",
+        "dateend": "08-12-2015"
+      },
+      {
+        "code": "2015-2",
+        "name": "Spring 2015/16",
+        "datestart": "05-01-2016",
+        "dateend": "17-04-2016"
+      }
+    ]
+  },
+
+  "2016": {
+      "name": "2016/17",
+      "startdate": "01-09-2016",
+      "termtype": "trimester",
+      "terms": [
+        {
+          "code": "2016-1",
+          "name": "First Trimester 2016/17",
+          "datestart": "01-09-2016",
+          "dateend": "28-10-2016"
+        },
+        {
+          "code": "2016-2",
+          "name": "Second Trimester 2016/17",
+          "datestart": "01-11-2016",
+          "dateend": "10-01-2017"
+        },
+        {
+          "code": "2016-3",
+          "name": "Third Trimester 2016/17",
+          "datestart": "28-01-2017",
+          "dateend": "19-04-2017"
+        }
+      ]
+    }
+}

@@ -1,11 +1,11 @@
 # Task
 
     1. Design any data format to configure the academic years and terms as described below.
-        1.1. This can be an ini file, xml file, yaml or anything you prefer
-        1.2. The data format must he human-editable
-        1.3. The data format must allow years and terms in the future to be configured differently without affecting any previous years. In the data, it is shown that one year the academic year started 5 days later than usual and in 2016 the school switched to the trimester system.
-        1.4. Design the data format to be as elegant as possible 
-    2. Design a sensible class structure to represent the academic years & terms and a suitable API to answer the questions in point (4)
+        1.1. This can be an ini file, xml file, yaml or anything you prefer [X]
+        1.2. The data format must he human-editable [X]
+        1.3. The data format must allow years and terms in the future to be configured  differently without affecting any previous years. In the data, it is shown that one year the academic year started 5 days later than usual and in 2016 the school switched to the trimester system. [X]
+        1.4. Design the data format to be as elegant as possible [X] 
+    2. Design a sensible class structure to represent the academic years & terms and a suitable API to answer the questions in point (4) [---]
     3. Create a factory to load the data (1) and construct the objects representing the years and terms (2).
     4. Implement methods to answer the following questions:
         4.1. Given a date (D), return the academic year object (AY) that this date lies on.
@@ -20,11 +20,11 @@
             5.1.1. Location of the configuration file
             5.2.2. The date (D)
         5.2. The script should print the answers to the questions in (4), for example:
-> Date belongs to academic year 2015/16
+> Date belongs to academic year 2015/16 
 > Academic year contains the ofllowing terms:
 >> Autumn 2015/16 (x days)
 >> Fall 2015/16 (x days) 
-6. You are expected to implement the solution in PHP. Use any external libraries you wish (composer!).
+6. You are expected to implement the solution in PHP. Use any external libraries you wish (composer!). [X]
 
 
 Data:

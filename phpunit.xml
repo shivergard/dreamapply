@@ -13,6 +13,9 @@
     <testsuites>
         <testsuite name="Package Test Suite">
             <directory suffix=".php">./tests/</directory>
+            <directory suffix=".php">./tests/Console</directory>
+            <directory suffix=".php">./tests/Console/Commands</directory>
+            <directory suffix=".php">./tests/helpers</directory>
         </testsuite>
     </testsuites>
 </phpunit>

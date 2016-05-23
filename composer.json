@@ -2,8 +2,6 @@
     "name": "shivergard/dreamapply",
     "description": "DreamApply test task",
     "require": {
-        "austinhyde/iniparser": "dev-master",
-        "messagebird/php-rest-api": "1.4.1",
         "illuminate/console": "*" ,
         "illuminate/filesystem" : "*",
         "pimple/pimple": "~3.0"
