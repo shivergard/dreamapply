@@ -3,7 +3,9 @@
     "description": "DreamApply test task",
     "require": {
         "austinhyde/iniparser": "dev-master",
-        "messagebird/php-rest-api": "1.4.1"
+        "messagebird/php-rest-api": "1.4.1",
+        "illuminate/console": "*" ,
+        "illuminate/filesystem" : "*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"
@@ -15,5 +17,12 @@
             "email": "sovas@greenbox.lv"
         }
     ],
+    "autoload": {
+        "psr-0": {
+            "Shivergard\\DreamApply\\": "src/",
+            "Shivergard\\DreamApply\\Helpers\\": "src/helpers",
+            "Shivergard\\DreamApply\\Console\\": "src/console"
+        }
+    },
     "minimum-stability": "dev"
 }
