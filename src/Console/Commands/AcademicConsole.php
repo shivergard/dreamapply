@@ -45,7 +45,7 @@ class AcademicConsole extends Command {
      */
     public function fire()
     {
-        $this->info('init accademic');
+        $this->info('init accademic '.$this->getIdInput());
     }
 
     /**

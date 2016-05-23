@@ -3,23 +3,11 @@
 
 require "vendor/autoload.php";
 
-use Symfony\Component\Console\Application;
+use \Shivergard\DreamApply\InitArtisan;
 
-use Pimple\Container;
+$artisan = new InitArtisan();
 
-use Shivergard\DreamApply\AcademicConsole;
-
-
-$container = new Container();
-
-$container['academic'] = function ($c) {
-    return new AcademicConsole($c);
-};
-
-
-$app = new Application("Mini Artisan for DreamApply  ", "mi mi mi");
-
-$app->add($container['academic']);
+$app = $artisan->init("Mini Artisan for DreamApply  ", "mi mi mi");
 
 $app->run();
 
