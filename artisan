@@ -5,7 +5,21 @@ require "vendor/autoload.php";
 
 use Symfony\Component\Console\Application;
 
+use Pimple\Container;
+
+use Shivergard\DreamApply\AcademicConsole;
+
+
+$container = new Container();
+
+$container['academic'] = function ($c) {
+    return new AcademicConsole($c);
+};
+
+
 $app = new Application("Mini Artisan for DreamApply  ", "mi mi mi");
+
+$app->add($container['academic']);
 
 $app->run();
 

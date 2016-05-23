@@ -1,8 +1,10 @@
-<?php namespace Shivergard\\DreamApply\Console;
+<?php namespace Shivergard\DreamApply;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+
+use Pimple\Container;
 
 use Carbon\Carbon;
 
@@ -43,7 +45,7 @@ class AcademicConsole extends Command {
      */
     public function fire()
     {
-        $this->info('init accademic')
+        $this->info('init accademic');
     }
 
     /**

@@ -5,7 +5,8 @@
         "austinhyde/iniparser": "dev-master",
         "messagebird/php-rest-api": "1.4.1",
         "illuminate/console": "*" ,
-        "illuminate/filesystem" : "*"
+        "illuminate/filesystem" : "*",
+        "pimple/pimple": "~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"
@@ -18,10 +19,12 @@
         }
     ],
     "autoload": {
+        "classmap": [
+            "src/console",
+            "src/helpers"
+        ],
         "psr-0": {
-            "Shivergard\\DreamApply\\": "src/",
-            "Shivergard\\DreamApply\\Helpers\\": "src/helpers",
-            "Shivergard\\DreamApply\\Console\\": "src/console"
+            "Shivergard\\DreamApply\\": "src/"
         }
     },
     "minimum-stability": "dev"
