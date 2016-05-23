@@ -1,4 +1,4 @@
-<?php namespace Dosje_in\FreeRecruiter;
+<?php namespace Shivergard\\DreamApply\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
