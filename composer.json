@@ -1,0 +1,19 @@
+{
+    "name": "shivergard/dreamapply",
+    "description": "DreamApply test task",
+    "require": {
+        "austinhyde/iniparser": "dev-master",
+        "messagebird/php-rest-api": "1.4.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "license": "wodoo-unknown : feel free to use",
+    "authors": [
+        {
+            "name": "Ronalds Sovas",
+            "email": "sovas@greenbox.lv"
+        }
+    ],
+    "minimum-stability": "dev"
+}
