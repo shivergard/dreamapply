@@ -20,7 +20,7 @@ class AcademicDataBuilder {
      * Matching Academic year Array
      * @var Array
      */
-    protected $matchingData;
+    protected $matchingData = false;
 
     /**
      * Matching academic term Array
@@ -49,6 +49,8 @@ class AcademicDataBuilder {
     public function __construct(Carbon $date , $dataProvider , $exec = true){
        $this->setDate($date);
        $this->setData($dataProvider->data());
+
+       $this->getMatchingDateObject();
     }
 
     /**
@@ -71,15 +73,15 @@ class AcademicDataBuilder {
      * Return Result string
      * @return String Results in compiled string
      */
-    public function resultAsString(){
+    public function resultAsArray(){
 
         $return = array(
                 'Date belongs to academic year '.$this->getAcademicYear() ,
                 'Academic year contains the ofllowing terms:',
         );
 
-        foreach ($this->getAcademicYear()['terms'] as $term) {
-           $return[] = $this->getAcademicTermName($term).' ('.$this->getAcademicTermLenght().' days )';
+        foreach ($this->getMatchingDateObject()['terms'] as $term) {
+           $return[] = $this->getAcademicTermName($term).' ('.$this->getAcademicTermLenght($term).' days )';
         }
 
 
@@ -107,7 +109,7 @@ class AcademicDataBuilder {
      * @param String $error Error messge
      */
     protected function setError($error){
-        $this->error = $error;
+        $this->errorMessage = $error;
     }
 
     /**
@@ -115,14 +117,16 @@ class AcademicDataBuilder {
      * @return mixed Returns false or matching data details
      */
     protected function getMatchingDateObject(){
-        if (isset($this->matchingData)){
+        
+        if ($this->matchingData){
             return $this->matchingData;
         }else if (isset($this->fullData[$this->date->year])){
-
             $this->matchingData = $this->fullData[$this->date->year];
-
             return $this->matchingData;
         }
+
+        $this->error = true;
+        $this->setError('Date is not in Any academic year ');
 
         return false;
     }

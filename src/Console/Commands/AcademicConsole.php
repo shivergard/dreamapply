@@ -53,12 +53,19 @@ class AcademicConsole extends Command {
             $this->error($parser->error());
         }
 
-        $academicData = new AcademicDataBuilder(Carbon::parse($this->getDate()) , $parser) ;
+        $date = Carbon::parse($this->getDate());
+
+        $this->info($date->year);
+        
+        $academicData = new AcademicDataBuilder($date , $parser) ;
 
         if (!$academicData->error()){
-            $this->info($academicData->resultAsString());
+            foreach ($academicData->resultAsArray() as $info) {
+                $this->info($info);
+            }
+            
         }else{
-            $this->error($parser->errorMessage());   
+            $this->error($academicData->errorMessage());   
         }
 
     }
