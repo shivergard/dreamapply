@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Pimple\Container;
 
 use Shivergard\DreamApply\Parser;
+use Shivergard\DreamApply\AcademicDataBuilder;
 
 use Carbon\Carbon;
 
@@ -52,9 +53,14 @@ class AcademicConsole extends Command {
             $this->error($parser->error());
         }
 
-        $data = $parser->data();
+        $academicData = new AcademicDataBuilder(Carbon::parse($this->getDate()) , $parser) ;
 
-        $this->info($data);
+        if (!$academicData->error()){
+            $this->info($academicData->resultAsString());
+        }else{
+            $this->error($parser->errorMessage());   
+        }
+
     }
 
     /**
@@ -65,6 +71,15 @@ class AcademicConsole extends Command {
     protected function getFilePathInput(){
         return $this->argument('filepath');
     }
+
+    /**
+     * Get date for Academic data calculation
+     * @return string
+     */
+    protected function getDate(){
+        return $this->argument('date');
+    }
+
     /**
      * Get the console command arguments.
      *
@@ -74,6 +89,7 @@ class AcademicConsole extends Command {
     {
         return array(
             array('filepath', InputArgument::REQUIRED, 'data file path'),
+            array('date', InputArgument::REQUIRED, 'date for academic data prepare')
         );
     }
 
