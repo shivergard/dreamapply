@@ -49,8 +49,8 @@ class AcademicDataBuilderTest extends \PHPUnit_Framework_TestCase
 
         $this->dataProvider = $dataProvider;
 
-        $carnonDate = Carbon::parse("05.09.2015"); 
-        $this->academic = new AcademicDataBuilder($carnonDate , $this->dataProvider ); 
+        $this->carnonDate = Carbon::parse("05.09.2015"); 
+        $this->academic = new AcademicDataBuilder($this->carnonDate , $this->dataProvider ); 
     }
 
     public function testBasicExample()
@@ -86,8 +86,55 @@ class AcademicDataBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     //4.2. Given the academic year (AY), get it's name, e.g. "2015/16"
+    public function testGetAcademicYear(){
+        $getAcademicYear = $this->getMethod('getAcademicYear');
+        $this->startTestSuite();
+        $result = $getAcademicYear->invokeArgs($this->academic , array());
+
+        //must be an array
+        $this->assertTrue(is_string($result));
+        $this->assertTrue( $result == $this->dataProvider->data()[$this->carnonDate->year]['name']);
+    }
     //4.3. Given the academic year (AY), return all the academic terms (AT) that belong to it.
+    public function testGetAcademicTerm(){
+        $getAcademicTerm = $this->getMethod('getAcademicTerm');
+        $this->startTestSuite();
+        $result = $getAcademicTerm->invokeArgs($this->academic , array());
+
+        //must be an array
+        $this->assertTrue(is_array($result));
+
+        $this->assertTrue(count(array_diff(
+            array(
+                "code" => "2015-1",
+                "name" => "Autumn 2015/16",
+                "datestart" => "01-09-2015",
+                "dateend" => "08-12-2015"
+            ),
+            $result
+        )) == 0);
+        
+    }    
     //4.4. Given the academic term (AT), print it's name, e.g "Spring 2015/16"
+    public function testGetAcademicTermName(){        
+        $getAcademicTermName = $this->getMethod('getAcademicTermName');
+        $this->startTestSuite();
+        $result = $getAcademicTermName->invokeArgs($this->academic , array());
+
+        //must be an array
+        $this->assertTrue(is_string($result));
+        $this->assertTrue( $result == 'Autumn 2015/16');
+    }   
     //4.5. Given the academic term (AT), calculate it's length in calendar days.
+    public function testGetAcademicTermLenght(){
+
+        $getAcademicTermName = $this->getMethod('getAcademicTermLenght');
+        $this->startTestSuite();
+        $result = $getAcademicTermName->invokeArgs($this->academic , array());
+
+        //must be an array
+        $this->assertTrue(is_int($result));
+        $this->assertTrue( $result == 98);
+    }   
 
 }
