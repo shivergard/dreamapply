@@ -6,7 +6,7 @@
         1.3. The data format must allow years and terms in the future to be configured  differently without affecting any previous years. In the data, it is shown that one year the academic year started 5 days later than usual and in 2016 the school switched to the trimester system. [X]
         1.4. Design the data format to be as elegant as possible [X] 
     2. Design a sensible class structure to represent the academic years & terms and a suitable API to answer the questions in point (4) [---]
-    3. Create a factory to load the data (1) and construct the objects representing the years and terms (2).
+    3. Create a factory to load the data (1) and construct the objects representing the years and terms (2). [x]
     4. Implement methods to answer the following questions:
         4.1. Given a date (D), return the academic year object (AY) that this date lies on.
             4.1.1. Decide what to do when the academic year is not configured. Return false, NULL, throw an exception?
@@ -17,7 +17,7 @@
         4.5. Given the academic term (AT), calculate it's length in calendar days.
     5. Write a script to bootstrap and run the code via CLI. 
         5.1. The script should take two arguments:
-            5.1.1. Location of the configuration file
+            5.1.1. Location of the configuration file [X]
             5.2.2. The date (D)
         5.2. The script should print the answers to the questions in (4), for example:
 > Date belongs to academic year 2015/16 

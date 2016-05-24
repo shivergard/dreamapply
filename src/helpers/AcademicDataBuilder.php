@@ -5,25 +5,38 @@ use Carbon\Carbon;
 class AcademicDataBuilder {
 
     /**
+     * Date object
+     * @var Carbon date
+     */
+    protected $date;
+
+    /**
+     * Private full data
+     * @var Array
+     */
+    protected $fullData;
+
+    /**
      * Error status
      * @var boolean
      */
-    private $error = false;
+    protected $error = false;
 
     /**
      * Error message
      * @var String
      */
-    private $errorMessage;
+    protected $errorMessage;
 
     /**
      * Result data
      * @var String
      */
-    private $result;
+    protected $result;
 
-    public function __construct(Carbon $date , \Shivergard\DreamApply\Parser $parserObject){
-
+    public function __construct(Carbon $date , $dataProvider , $exec = true){
+       $this->setDate($date);
+       $this->setData($dataProvider->data());
     }
 
     /**
@@ -48,6 +61,22 @@ class AcademicDataBuilder {
      */
     public function resultAsString(){
         return $this->result;  
+    }
+
+    protected function setDate($date){
+        $this->date = $date;
+    }
+
+    protected function setData($data){
+        $this->fullData = $data;
+    }
+
+    protected function getMatchingDateObject(){
+        if (isset($this->fullData[$this->date->year])){
+            return $this->fullData[$this->date->year];
+        }
+
+        return false;
     }
 
 
