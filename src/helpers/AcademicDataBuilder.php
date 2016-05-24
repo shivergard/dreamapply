@@ -72,7 +72,18 @@ class AcademicDataBuilder {
      * @return String Results in compiled string
      */
     public function resultAsString(){
-        return $this->result;  
+
+        $return = array(
+                'Date belongs to academic year '.$this->getAcademicYear() ,
+                'Academic year contains the ofllowing terms:',
+        );
+
+        foreach ($this->getAcademicYear()['terms'] as $term) {
+           $return[] = $this->getAcademicTermName($term).' ('.$this->getAcademicTermLenght().' days )';
+        }
+
+
+        return $return;  
     }
 
     /**
@@ -158,13 +169,16 @@ class AcademicDataBuilder {
      * Get Actual Term name
      * @return String
      */
-    protected function getAcademicTermName(){
-        $term = $this->getAcademicTerm();
+    protected function getAcademicTermName($term = false){
+        if (!$term)
+            $term = $this->getAcademicTerm();
         return $term['name'];
     }
 
-    protected function getAcademicTermLenght(){
-        $term = $this->getAcademicTerm();
+    protected function getAcademicTermLenght($term = false){
+        if (!$term)
+            $term = $this->getAcademicTerm();
+        
         return Carbon::parse($term['datestart'])
                      ->diff(Carbon::parse($term['dateend']))
                      ->days;

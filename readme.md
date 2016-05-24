@@ -9,12 +9,12 @@
     3. Create a factory to load the data (1) and construct the objects representing the years and terms (2). [x]
     4. Implement methods to answer the following questions:
         4.1. Given a date (D), return the academic year object (AY) that this date lies on.
-            4.1.1. Decide what to do when the academic year is not configured. Return false, NULL, throw an exception?
-         4.1.2. An academic year is considered "in effect" until the next academic year has not yet started. Make sure you get 2015-09-03 correct 
-        4.2. Given the academic year (AY), get it's name, e.g. "2015/16"
-        4.3. Given the academic year (AY), return all the academic terms (AT) that belong to it.
-        4.4. Given the academic term (AT), print it's name, e.g "Spring 2015/16"
-        4.5. Given the academic term (AT), calculate it's length in calendar days.
+            4.1.1. Decide what to do when the academic year is not configured. Return false, NULL, throw an exception? [x]
+         4.1.2. An academic year is considered "in effect" until the next academic year has not yet started. Make sure you get 2015-09-03 correct [x]
+        4.2. Given the academic year (AY), get it's name, e.g. "2015/16" [x]
+        4.3. Given the academic year (AY), return all the academic terms (AT) that belong to it. [x]
+        4.4. Given the academic term (AT), print it's name, e.g "Spring 2015/16" [x]
+        4.5. Given the academic term (AT), calculate it's length in calendar days. [x]
     5. Write a script to bootstrap and run the code via CLI. 
         5.1. The script should take two arguments:
             5.1.1. Location of the configuration file [X]
