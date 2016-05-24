@@ -1,3 +1,25 @@
+#Development notes
+
+## usage
+```san academic:get data/academic.json 05-09-2014 ```
+
+and depeding on data will return error if data file is incorrect.
+In success case must return :
+```
+    2014
+    Date belongs to academic year 2014/15
+    Academic year contains the ofllowing terms:
+    Autumn 2014/15 (100 days )
+    Spring 2014/15 (101 days )
+
+``` 
+
+## Issues
+    Minimal test cases overviewed - more over is tested correct Json data input , missing tests and validator for empty fields and many other logical data.
+
+    Overviewed only basic error cases if jSon file is empty , or it is a josn file and is valid josn file : more in ```/tests/helpers/ParserTest.php```
+
+
 # Task
 
     1. Design any data format to configure the academic years and terms as described below.
@@ -18,7 +40,7 @@
     5. Write a script to bootstrap and run the code via CLI. 
         5.1. The script should take two arguments:
             5.1.1. Location of the configuration file [X]
-            5.2.2. The date (D)
+            5.2.2. The date (D) [x]
         5.2. The script should print the answers to the questions in (4), for example:
 > Date belongs to academic year 2015/16 
 > Academic year contains the ofllowing terms:
